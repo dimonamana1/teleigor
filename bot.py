@@ -15,11 +15,15 @@ stack = utils.Stack()
 def game(message):
     conn = sqlite3.connect("1.db")
     cursor = conn.cursor()
-    cursor.execute("""INSERT INTO Players
-                      VALUES ('%s','1')""" % (message.chat.id))
-    conn.commit()
-    cursor.close()
-    conn.close()
+    sql = "SELECT * FROM Players WHERE id=?"
+    cursor.execute(sql, [(message.chat.id)])
+    if len(cursor.fetchall()) == 0:
+        cursor.execute("""INSERT INTO Players
+                              VALUES ('%s','%s1','1','0','white','20','5','0','0','0','0','0')""" % (
+            message.chat.id, message.chat.username))
+        conn.commit()
+        cursor.close()
+        conn.close()
     bot.send_message(message.chat.id, message.chat.id, reply_markup=Keyboards.markup)
 
     @bot.message_handler(regexp="⚔️Арена")
