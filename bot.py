@@ -5,6 +5,7 @@ import Keyboards
 import telebot
 from telebot import types
 import sqlite3
+from Tables import Hero
 
 bot = telebot.TeleBot(config.token)
 
@@ -182,7 +183,7 @@ def game(message):
     @bot.message_handler(regexp="🎖 Герой")
     def handle_message(message):
         stack.push(Keyboards.markup)
-        bot.send_message(message.chat.id, "1", reply_markup=Keyboards.markup3)
+        bot.send_message(message.chat.id, Hero.OutStat(message.chat.id) , reply_markup=Keyboards.markup3)
 
         @bot.message_handler(regexp="⬅️ Назад")
         def handle_message(message):
