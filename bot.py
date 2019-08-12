@@ -20,7 +20,7 @@ def game(message):
     if len(cursor.fetchall()) == 0:
         cursor.execute("""INSERT INTO Players
                               VALUES ('%s','%s1','1','0','white','20','5','0','0','0','0','0')""" % (
-            message.chat.id, message.chat.username))
+            message.chat.id, "@"+message.chat.username))
         conn.commit()
         cursor.close()
         conn.close()

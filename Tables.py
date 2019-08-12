@@ -22,3 +22,15 @@ class Hero:
         a = Name + "\n" +"🎖 Уровень:" + Lvl+ "\n" + "🌟 Опыт:" + Exp + "\n" + "💟 Фракция: "+ Fraction + "\n"+"💰 Золото:" + Gold + "\n"  +"💎 Алмазы:" + Dimonds + "\n"+ "🏆 Звание" + Status +"\n";
         a = a + "💯 Рейтинг:" + Rating+ "\n" + "🏆 Побед:" + Win + "\n" + "🤕 Поражений:" + Loose+ "\n" + "🤝 Ничьих:" + Draw+ "\n";
         return(a);
+
+    def Arena(id):
+        Table = sqlite3.connect("2.db");
+        cursor = Table.cursor()
+        AllHp = cursor.execute("SELECT AllHp FROM Skills WHERE id LIKE " + id + ";")
+        Hp = cursor.execute("SELECT Hp FROM Skills WHERE id LIKE " + id + ";")
+        Table = sqlite3.connect("1.db");
+        cursor = Table.cursor()
+        Name = cursor.execute("SELECT username FROM Players WHERE id LIKE " + id + ";")
+        Lvl = cursor.execute("SELECT level FROM Players WHERE id LIKE " + id + ";")
+        answer = Name + "🎖"+ Lvl+" 🖤 ("+Hp+"/"+AllHp+ " \n \n + Добро пожаловать на Арену Лакедемон! \n \n Тут ты можешь принять участие в одиночных, групповых, хаотических и тренировочных боях, повысить рейтинг и опыт, а также заработать золото."
+        return (answer);
