@@ -64,3 +64,5 @@ menu51 = Menu('🏆 Лига', Keyboards.markup51, 'white', '🏆 Лиги', 0, 
 
 massive = [menu, menu1, menu11, menu12, menu13, menu14, menu2, menu21, menu22, menu23, menu24, menu25, menu26,
            menu261, menu27, menu28, menu282, menu283, menu3, menu4, menu44, menu441, menu442, menu46, menu5, menu51]
+
+mas = {'⚔️Арена' : 23}

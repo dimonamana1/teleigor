@@ -35,7 +35,7 @@ def game(message):
                     if j.name == i:
                         curpos.color = 'black'
                         curpos = j
-                        bot.send_message(message.chat.id, message.chat.username, reply_markup=curpos.markup)
+                        bot.send_message(message.chat.id, utils.mas[curpos.name], reply_markup=curpos.markup)
 
 @bot.message_handler(regexp="⬅️ Назад")
 def handle_message(message):
@@ -45,7 +45,7 @@ def handle_message(message):
             if j.name == i and j.color == 'black':
                 j.color = 'white'
                 curpos = j
-                bot.send_message(message.chat.id, message.chat.username, reply_markup=curpos.markup)
+                bot.send_message(message.chat.id, utils.mas[curpos.name], reply_markup=curpos.markup)
 
 @bot.message_handler(regexp="Отмена")
 def handle_message(message):
@@ -55,7 +55,7 @@ def handle_message(message):
             if j.name == i and j.color == 'black':
                 j.color = 'white'
                 curpos = j
-                bot.send_message(message.chat.id, message.chat.username, reply_markup=curpos.markup)
+                bot.send_message(message.chat.id, utils.mas[curpos.name], reply_markup=curpos.markup)
 
 
 
