@@ -16,7 +16,7 @@ class Hero:
         Loose = cursor.execute("SELECT lose FROM Players WHERE id LIKE " + id + ";")
         Draw = cursor.execute("SELECT draws FROM Players WHERE id LIKE " + id + ";")
 
-        print cursor.fetchall()
+        print (cursor.fetchall())
 
 
         a = Name + "\n" +"🎖 Уровень:" + Lvl+ "\n" + "🌟 Опыт:" + Exp + "\n" + "💟 Фракция: "+ Fraction + "\n"+"💰 Золото:" + Gold + "\n"  +"💎 Алмазы:" + Dimonds + "\n"+ "🏆 Звание" + Status +"\n";
