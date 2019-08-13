@@ -1,6 +1,7 @@
 import telebot
 from telebot import types
 
+
 markup = types.ReplyKeyboardMarkup(True)
 markup.row('⚔️Арена', '🏘Город')
 markup.row('🎖 Герой', '🏰 Клан')
